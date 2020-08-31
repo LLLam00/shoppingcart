@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+    "http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+    <package name="ssh" namespace="/" extends="struts-default">
+    <interceptors>
+            <!--配置拦截器栈-->
+            <interceptor-stack name="myStack">
+                <!--配置fileUpload拦截器-->
+                <interceptor-ref name="fileUpload">
+                    <!--配置允许上传文件的类型（此处要注意的是png图片在ie浏览器中是image/x-png类型）-->
+                    <param name="allowedTypes">image/png,image/x-png,image/bmp,image/gif,image/jpeg,image/jpg</param>
+                    <!--配置允许上传文件大小拦截器，单位是字节（5m）-->
+                    <param name="maximumSize">5242880</param>
+                </interceptor-ref>
+                <interceptor-ref name="defaultStack"/>
+            </interceptor-stack>
+        </interceptors>
+        <action name="product_*" class="productAction"
+			method="{1}">
+			<result name="success">/manageProduct.jsp</result>
+			<result name="alter">/update.jsp</result>
+			<result name="none">/uploadSuccess.jsp</result>
+			<result name="show">/showProduct.jsp</result>
+			<result name="detail">/showDetail.jsp</result>
+			<result name="showcart">/showCart.jsp</result>
+			
+			<!--使用拦截器栈-->
+            <interceptor-ref name="myStack"/>
+            <!--过滤失败，系统会转入input逻辑视图，这里配置其返回选择界面-->
+			<result name="input">/addProduct.jsp</result>
+		</action>
+		<action name="user_*" class="userAction"
+			method="{1}">
+			<result name="success">/index.jsp</result>
+			<result name="none">/register.jsp</result>
+			<result name="input">/userLogin.jsp</result>
+			<result name="admin">/admin.jsp</result>
+			<result name="toLogin">/success.jsp</result>
+		</action>
+		<action name="order_*" class="orderAction"
+			method="{1}">
+			<result name="success">/manageOrder.jsp</result>
+			<result name="alter">/updateOrder.jsp</result>
+			<result name="input">/addOrder.jsp</result>
+			<result name="none">/updateSuccess.jsp</result>
+		</action>
+		<action name="vip_*" class="vipAction"
+			method="{1}">
+			<result name="success">/manageVip.jsp</result>
+			<result name="alter">/updateVip.jsp</result>
+			<result name="input">/addVip.jsp</result>
+			<result name="none">/update-success.jsp</result>
+		</action>
+		
+    </package>
+</struts>

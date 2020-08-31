@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+            "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+ 
+<hibernate-mapping package="com.domain">
+	<class name="Order" table="ordering">
+	<id name="oid" column="oid">
+		<generator class="native" />
+	</id>
+	<property name="buyer" type="string" column="buyer" />
+    <property name="tele" type="string" column="tele" />	
+    <property name="estate" type="string" column="estate" />
+	</class>
+</hibernate-mapping>

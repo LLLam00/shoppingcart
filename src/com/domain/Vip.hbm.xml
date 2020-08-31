@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated 2020-6-18 6:46:48 by Hibernate Tools 3.5.0.Final -->
+<hibernate-mapping>
+    <class name="com.domain.Vip" table="vip">
+        <id name="vid" type="java.lang.Integer">
+            <column name="vid" />
+            <generator class="native" />
+        </id>
+        <property name="vname" type="java.lang.String">
+            <column name="vname" />
+        </property>
+        <property name="level" type="int">
+            <column name="level" />
+        </property>
+        <property name="tele" type="java.lang.String">
+            <column name="tele" />
+        </property>
+        <property name="points" type="int">
+            <column name="points" />
+        </property>
+        <property name="gender" type="java.lang.String">
+            <column name="gender" />
+        </property>
+    </class>
+</hibernate-mapping>

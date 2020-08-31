@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context reloadable = "true">
+<Resource
+      name="jdbc/shopping_cartDS"
+      type="javax.sql.DataSource" 
+      driverClassName="com.mysql.jdbc.Driver"
+      url="jdbc:mysql://127.0.0.1:3306/shopping_cart?useSSL=false&amp;serverTimezone=UTC"
+      username="root"
+      password="980902"
+      maxTotal="4"
+      maxIdle="2"
+      maxWaitMillis="5000"/>
+</Context>
